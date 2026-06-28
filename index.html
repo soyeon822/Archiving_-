@@ -498,6 +498,157 @@ button.chip:hover{background:var(--bg-soft2)}
 .onb-rc .why{font-size:12.5px;color:var(--accent);font-weight:700;margin-top:6px}
 .onb-rc .go{margin-left:auto;color:var(--ink-3);font-size:24px;font-weight:300;flex-shrink:0}
 
+/* ===== 작품 등록 / 소장관 / 프로필 수정 / 단행본 ===== */
+.reg-tabs{display:flex;gap:6px;margin-bottom:16px;background:var(--bg-soft);padding:5px;border-radius:12px}
+.reg-tabs button{flex:1;font-size:13.5px;font-weight:700;padding:9px;border-radius:9px;color:var(--ink-2)}
+.reg-tabs button.on{background:#fff;color:var(--ink);box-shadow:var(--shadow)}
+.reg-row{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--line)}
+.reg-row .pp{width:42px;height:58px;border-radius:7px;flex-shrink:0}
+.reg-row .t{font-weight:800;font-size:14px}
+.reg-row .g{font-size:12px;color:var(--ink-3);font-weight:600;margin-top:2px}
+.reg-status{display:flex;gap:5px;flex-wrap:wrap;margin-top:8px}
+.reg-status button{font-size:11px;font-weight:700;padding:5px 9px;border-radius:8px;background:var(--bg-soft);color:var(--ink-2)}
+.reg-status button.on{color:#fff}
+.reg-status button.on.s-watch{background:#0a66ff}.reg-status button.on.s-hold{background:#d97706}
+.reg-status button.on.s-drop{background:#6b7280}.reg-status button.on.s-done{background:#10b981}
+.reg-done{font-size:11px;font-weight:800;color:#10b981;flex-shrink:0;align-self:flex-start;margin-top:4px}
+#regResults{max-height:340px;overflow-y:auto}
+.reg-custom{display:flex;gap:14px;margin-bottom:6px}
+.reg-photo{width:96px;height:130px;border-radius:12px;flex-shrink:0;overflow:hidden;cursor:pointer;
+  border:1.5px dashed var(--line-2);display:grid;place-items:center;background:var(--bg-soft)}
+.reg-photo img{width:100%;height:100%;object-fit:cover}
+.reg-photo .ph{text-align:center;color:var(--ink-3);font-size:12px;font-weight:700}
+.reg-inp{width:100%;border:1.5px solid var(--line-2);border-radius:11px;padding:11px 13px;font-size:14px;margin-bottom:9px;color:var(--ink);background:#fff}
+.reg-inp:focus{outline:none;border-color:var(--blue)}
+select.reg-inp{appearance:none;cursor:pointer}
+.pe-lab{display:block;font-size:12.5px;font-weight:700;color:var(--ink-3);margin:4px 0 6px}
+.edit-prof{font-size:12.5px;font-weight:700;color:var(--ink-2);background:var(--bg-soft);padding:8px 14px;border-radius:999px;margin-top:11px}
+.edit-prof:hover{background:var(--bg-soft2)}
+.buy-card{display:flex;align-items:center;gap:14px;border:1px solid var(--line);border-radius:14px;padding:14px 16px;box-shadow:var(--shadow)}
+.buy-ic{width:46px;height:46px;border-radius:12px;background:linear-gradient(135deg,#0a66ff,#00c6ff);display:grid;place-items:center;font-size:22px;flex-shrink:0}
+.buy-t{font-weight:800;font-size:14.5px}
+.buy-p{font-size:13px;color:var(--accent);font-weight:800;margin-top:2px}
+.buy-btn{flex-shrink:0;text-decoration:none;padding:11px 16px}
+@media(max-width:560px){.buy-card{flex-wrap:wrap}.buy-btn{width:100%}}
+.owned-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
+.own-card{display:flex;gap:13px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:13px;box-shadow:var(--shadow);position:relative}
+.own-cover{width:52px;height:72px;border-radius:8px;flex-shrink:0;display:flex;align-items:flex-end;padding:5px;color:#fff;font-weight:800;font-size:10px;background-color:var(--bg-soft2);background-size:cover;background-position:center}
+.own-info{flex:1;min-width:0}
+.own-t{font-weight:800;font-size:14.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding-right:18px}
+.own-g{font-size:12px;color:var(--ink-3);font-weight:600;margin-top:2px}
+.own-card .reg-status{margin-top:9px}
+.own-x{position:absolute;top:8px;right:8px;width:24px;height:24px;border-radius:50%;background:var(--bg-soft);color:var(--ink-3);font-size:12px;display:grid;place-items:center}
+.own-x:hover{background:#ffe2e2;color:var(--accent)}
+
+/* ===== v3: 월간 리포트 / 뱃지 티어 / 제작사 / 시리즈 트리 ===== */
+.mr-wrap{display:grid;grid-template-columns:230px 1fr;gap:18px;align-items:start}
+@media(max-width:760px){.mr-wrap{grid-template-columns:1fr}}
+.mr-profile{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:var(--shadow);text-align:center}
+.mr-profile .av{width:64px;height:64px;border-radius:50%;margin:0 auto 10px;background:linear-gradient(135deg,#ff7eb3,#ff2e63);display:grid;place-items:center;color:#fff;font-weight:900;font-size:26px}
+.mr-profile .nm{font-weight:900;font-size:18px}
+.mr-profile .id{font-size:12px;color:var(--ink-3);font-weight:600;margin-top:2px}
+.mr-ring{width:150px;height:150px;border-radius:50%;margin:18px auto 4px;display:grid;place-items:center;
+  background:conic-gradient(var(--blue) calc(var(--p,75)*1%), var(--bg-soft) 0);position:relative}
+.mr-ring::before{content:"";position:absolute;inset:11px;border-radius:50%;background:#fff}
+.mr-ring .in{position:relative;text-align:center}
+.mr-ring .y{font-size:12px;color:var(--ink-3);font-weight:700}
+.mr-ring .n{font-size:30px;font-weight:900;letter-spacing:-1px;line-height:1}
+.mr-ring .u{font-size:12px;color:var(--ink-2);font-weight:700}
+.mr-main{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);overflow:hidden}
+.mr-stats{display:grid;grid-template-columns:repeat(4,1fr)}
+.mr-stat{padding:18px 10px;text-align:center;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.mr-stat:nth-child(4){border-right:none}
+.mr-stat .l{font-size:12px;color:var(--ink-3);font-weight:700}
+.mr-stat .v{font-size:21px;font-weight:900;margin-top:4px;letter-spacing:-.4px}
+.mr-cal{padding:18px 20px}
+.mr-cal .top{text-align:center;font-weight:800;font-size:16px;margin-bottom:14px}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+.cal-h{text-align:center;font-size:12px;font-weight:700;color:var(--ink-3);padding-bottom:2px}
+.cal-h.sun{color:#ef4444}
+.cal-cell{aspect-ratio:3/4;border-radius:8px;position:relative;display:flex;align-items:flex-start;padding:5px;font-size:11.5px;font-weight:700;color:var(--ink-3)}
+.cal-cell.empty{background:transparent}
+.cal-cell.has{color:#fff;box-shadow:var(--shadow)}
+.cal-cell.has .dn{position:relative;z-index:2;text-shadow:0 1px 3px rgba(0,0,0,.55)}
+.cal-cell .cnt{position:absolute;top:-5px;right:-5px;background:var(--blue);color:#fff;font-size:10px;font-weight:800;width:18px;height:18px;border-radius:50%;display:grid;place-items:center;z-index:3;border:2px solid #fff}
+.mr-bars{display:flex;align-items:flex-end;gap:7px;padding:16px 20px 20px;border-top:1px solid var(--line);height:172px}
+.mr-bar{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;gap:6px}
+.mr-bar .b{width:100%;max-width:30px;background:#cdd9ff;border-radius:6px 6px 0 0;transition:.5s}
+.mr-bar.cur .b{background:linear-gradient(180deg,#00c6ff,#0a66ff)}
+.mr-bar .v{font-size:10px;font-weight:800;color:var(--ink-2)}
+.mr-bar .m{font-size:10px;font-weight:700;color:var(--ink-3)}
+.mr-bar.cur .m{color:var(--blue)}
+
+.badge-item{position:relative}
+.badge-tier-h{display:flex;align-items:center;gap:9px;font-size:14.5px;font-weight:800;margin:4px 0 13px}
+.badge-tier-h .tg{font-size:10.5px;font-weight:800;padding:3px 9px;border-radius:999px}
+.badge-item .prog{height:5px;background:var(--bg-soft);border-radius:999px;margin-top:9px;overflow:hidden}
+.badge-item .prog i{display:block;height:100%;border-radius:999px;background:var(--blue)}
+.badge-item .pv{font-size:10.5px;font-weight:700;color:var(--ink-3);margin-top:5px}
+.badge-item.gold{background:linear-gradient(160deg,#fffbeb,#fff);border-color:#f0d99a}
+.badge-item.gold .ic{box-shadow:0 6px 18px rgba(212,160,23,.35)}
+.badge-item.gold.got{border-color:#e8b923;box-shadow:0 8px 22px rgba(212,160,23,.28)}
+.badge-item.gold .prog i{background:linear-gradient(90deg,#f59e0b,#fbbf24)}
+.badge-item .goldtag{position:absolute;top:7px;right:9px;font-size:8.5px;font-weight:900;color:#b8860b;letter-spacing:.5px}
+.badge-item .gotmark{position:absolute;top:7px;left:9px;font-size:13px}
+
+/* 제작사 페이지 */
+.studio-hero{display:flex;gap:22px;align-items:center;margin-bottom:24px;flex-wrap:wrap}
+.studio-logo{width:92px;height:92px;border-radius:24px;display:grid;place-items:center;font-size:44px;color:#fff;flex-shrink:0;box-shadow:var(--shadow-lg)}
+.studio-hd{flex:1;min-width:240px}
+.studio-hd h1{font-size:27px;font-weight:900;letter-spacing:-.6px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.studio-hd .en{font-size:13.5px;color:var(--ink-3);font-weight:700;margin-top:3px}
+.studio-hd .meta{font-size:13px;color:var(--ink-2);font-weight:600;margin-top:8px}
+.studio-hd .tagline{font-size:14.5px;font-weight:700;margin-top:9px;color:var(--blue)}
+.studio-status{font-size:11px;font-weight:800;padding:3px 10px;border-radius:999px;background:#e7f9f0;color:#0a8a52}
+.studio-links{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+.studio-links a,.studio-links button{font-size:12.5px;font-weight:700;color:var(--ink);background:var(--bg-soft);padding:8px 13px;border-radius:10px;text-decoration:none}
+.studio-links a:hover,.studio-links button:hover{background:var(--bg-soft2)}
+.studio-links .foll.on{background:var(--ink);color:#fff}
+.studio-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:12px;margin-bottom:8px}
+.ss-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:15px;text-align:center;box-shadow:var(--shadow)}
+.ss-card .n{font-size:21px;font-weight:900}
+.ss-card .l{font-size:11.5px;color:var(--ink-3);font-weight:600;margin-top:2px}
+.gdist{display:flex;flex-direction:column;gap:9px;margin-top:4px}
+.gdist .row{display:flex;align-items:center;gap:10px}
+.gdist .gl{width:74px;font-size:12.5px;font-weight:700;flex-shrink:0;text-align:right;color:var(--ink-2)}
+.gdist .gt{flex:1;height:13px;background:var(--bg-soft);border-radius:999px;overflow:hidden}
+.gdist .gt i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,#0a66ff,#00c6ff)}
+.gdist .gn{font-size:12px;font-weight:800;color:var(--ink-2);width:26px}
+.sfilter2{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:14px}
+.sfilter2 select{font-size:12.5px;font-weight:700;border:1.5px solid var(--line-2);border-radius:9px;padding:8px 11px;background:#fff;color:var(--ink);cursor:pointer}
+.crew-wrap{display:flex;gap:8px;flex-wrap:wrap}
+.crew-chip{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;padding:8px 13px;border-radius:10px;background:var(--bg-soft);cursor:pointer}
+.crew-chip:hover{background:var(--bg-soft2)}
+.crew-chip.static{cursor:default}
+.stl-item{display:flex;gap:14px;padding:11px 0;border-bottom:1px solid var(--line)}
+.stl-item .yr{font-weight:900;color:var(--blue);width:54px;flex-shrink:0}
+.stl-item .wk{font-weight:700;font-size:14px;cursor:pointer}
+.stl-item .wk:hover{color:var(--accent)}
+.sim-row{display:flex;gap:12px;overflow-x:auto;padding-bottom:6px;scrollbar-width:none}
+.sim-card{flex:0 0 auto;width:134px;text-align:center;background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px;cursor:pointer;box-shadow:var(--shadow);transition:.18s}
+.sim-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg)}
+.sim-card .lg{width:44px;height:44px;border-radius:12px;margin:0 auto 8px;display:grid;place-items:center;font-size:20px;color:#fff}
+.sim-card .nm{font-weight:800;font-size:13px}
+.sim-card .rl{font-size:11px;color:var(--ink-3);font-weight:600;margin-top:2px}
+
+/* 시리즈 트리 */
+.series-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.series-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:var(--shadow)}
+.series-card .sh{display:flex;align-items:center;gap:9px;margin-bottom:12px}
+.series-card .sh .sd{width:11px;height:11px;border-radius:50%;flex-shrink:0}
+.series-card .sh .t{font-weight:800;font-size:15.5px}
+.series-card .sh .c{margin-left:auto;font-size:11.5px;font-weight:700;color:var(--ink-3)}
+.snode{display:flex;align-items:center;gap:11px;padding:9px 0;cursor:pointer}
+.snode .ck{width:24px;height:24px;border-radius:50%;border:2px solid var(--line-2);display:grid;place-items:center;font-size:11px;flex-shrink:0;transition:.15s;color:transparent}
+.snode.done .ck{background:#10b981;border-color:#10b981;color:#fff}
+.snode .nm{font-weight:700;font-size:13.5px}
+.snode .sub{font-size:11px;color:var(--ink-3);font-weight:600}
+.snode.next{background:#eef4ff;border-radius:10px;padding:9px 11px;margin:2px -11px}
+.snode.next .nm{color:var(--blue)}
+.snode .nexttag{margin-left:auto;font-size:10px;font-weight:800;color:#fff;background:var(--blue);padding:3px 9px;border-radius:999px;flex-shrink:0}
+.snode .open{margin-left:auto;color:var(--ink-3);font-size:16px;flex-shrink:0}
+.snode.done .nm{color:var(--ink-3)}
+
 @media(max-width:560px){
   .hero h1{font-size:26px}
   .detail-hero{grid-template-columns:110px 1fr}
@@ -520,7 +671,7 @@ button.chip:hover{background:var(--bg-soft2)}
       <input id="searchInput" placeholder="작품·작가·태그 검색 (예: 다크판타지)" oninput="onSearch(this.value)" />
     </div>
     <div class="spacer"></div>
-    <div class="avatar" onclick="go('mypage')">소</div>
+    <div class="avatar" id="topAv" onclick="go('mypage')">소</div>
   </div>
 </header>
 
@@ -615,6 +766,10 @@ const byId = id => WORKS.find(w=>w.id===id);
 const EXTRA={1:[26,94],2:[19,88],3:[36,91],4:[12,85],5:[8,96],6:[10,80],7:[14,90],8:[8,76],9:[15,89],10:[24,87],11:[20,92],12:[6,83]};
 WORKS.forEach(w=>{const e=EXTRA[w.id]||[12,85];w.hours=e[0];w.comp=e[1]});
 
+/* 단행본(종이책) 구매 정보 — 만화·웹툰 단행본 보유작 */
+const BOOKS={1:['9,000원~','예스24','https://www.yes24.com/product/search?query='],3:['5,500원~','알라딘','https://www.aladin.co.kr/search/wsearchresult.aspx?SearchWord='],4:['12,000원~','교보문고','https://search.kyobobook.co.kr/search?keyword='],5:['13,000원~','알라딘','https://www.aladin.co.kr/search/wsearchresult.aspx?SearchWord='],9:['11,000원~','예스24','https://www.yes24.com/product/search?query='],11:['12,000원~','교보문고','https://search.kyobobook.co.kr/search?keyword=']};
+WORKS.forEach(w=>{const b=BOOKS[w.id];if(b)w.book={price:b[0],store:b[1],url:b[2]}});
+
 const STATE = {
   saved:new Set(),         // 보고싶어요 한 작품
   ratings:{},              // {workId:점수}
@@ -629,6 +784,10 @@ const STATE = {
   top3:[1,3,5],            // 인생작 탑3 (workId)
   moodFilter:null,         // 무드 발견 필터
   mpFilter:'all',          // 마이페이지 도감 필터
+  profile:{name:'소연',bio:'웹툰·애니 발견을 즐기는 항해사'},
+  customWorks:[],          // 직접 등록한 소장 작품(플랫폼에 없는 것)
+  seriesProgress:new Set(),// 시리즈 트리에서 본 항목 키
+  myReviews:0,             // 내가 작성한 평가 수
 };
 const STATUS_META={
   watch:{l:'정주행 중',e:'▶',c:'#0a66ff',cls:'s-watch'},
@@ -649,19 +808,120 @@ const FEED = [
   {n:'재범',av:'#f97316',badge:['발굴왕','#10b981'],act:'님이 숨은 명작을 발굴했어요',wid:12,pitch:'조회수는 낮은데 진짜 물건임. 잔잔한 로판 좋아하면 후회 안 함. 한 번만 봐주세요 제발요!'},
 ];
 
-const BADGES = [
-  {ic:'💗',c:'#ff2e63',n:'로맨스 사랑단',d:'로맨스 5작품 감상',got:true},
-  {ic:'🧭',c:'#0a66ff',n:'발굴왕',d:'숨은 명작 3개 발굴',got:true},
-  {ic:'🏔️',c:'#d97706',n:'초절정 고수',d:'무협 다독 칭호',got:true},
-  {ic:'🥕',c:'#ffaf1a',n:'큐레이터',d:'추천 100회 받기',got:false},
-  {ic:'⚔️',c:'#b91c1c',n:'액션에 미친 자',d:'액션 100작품 감상',got:false},
-  {ic:'👑',c:'#7c3aed',n:'장르 유목민',d:'전 장르 1작품 이상',got:false},
+const ALL_GENRES=[...new Set(WORKS.flatMap(w=>w.genres))];
+/* 본 작품(상호작용한 작품) 집합 — 뱃지 진행도 계산용 */
+function seenIds(){const s=new Set([...STATE.saved]);Object.keys(STATE.status).forEach(id=>s.add(+id));Object.keys(STATE.ratings).forEach(id=>s.add(+id));(STATE.top3||[]).forEach(id=>s.add(id));return s}
+function genreSeen(g){let n=0;seenIds().forEach(id=>{const w=byId(id);if(w&&w.genres.includes(g))n++});return n}
+function tagSeen(t){let n=0;seenIds().forEach(id=>{const w=byId(id);if(w&&w.tags.includes(t))n++});return n}
+function genresCovered(){const s=new Set();seenIds().forEach(id=>{const w=byId(id);if(w)w.genres.forEach(g=>s.add(g))});return s.size}
+
+/* 뱃지: 일반(쉬움) + 황금(상위 1% 난이도). cond()는 현재 달성치, need는 목표치 */
+const BADGES=[
+  {tier:'easy',ic:'💗',c:'#ff2e63',n:'로맨스 사랑단',d:'로맨스 작품 3편 감상',cond:()=>genreSeen('로맨스'),need:3},
+  {tier:'easy',ic:'🌱',c:'#10b981',n:'첫 항해',d:'보고싶어요 첫 작품 담기',cond:()=>STATE.saved.size,need:1},
+  {tier:'easy',ic:'⭐',c:'#ffaf1a',n:'별점 입문',d:'작품 5개 평가하기',cond:()=>Object.keys(STATE.ratings).length,need:5},
+  {tier:'easy',ic:'📅',c:'#0a66ff',n:'개근 항해사',d:'3일 연속 출석',cond:()=>STATE.streak,need:3},
+  {tier:'easy',ic:'🔮',c:'#7c3aed',n:'취향 분석러',d:'취향분석 온보딩 완료',cond:()=>STATE.taste?1:0,need:1},
+  {tier:'easy',ic:'✍️',c:'#0ea5e9',n:'첫 영업글',d:'코멘트(평가글) 1개 작성',cond:()=>STATE.myReviews,need:1},
+  {tier:'gold',ic:'🥕',c:'#f59e0b',n:'큐레이터',d:'평가 1000개 · 추천 100회',cond:()=>Object.keys(STATE.ratings).length,need:1000},
+  {tier:'gold',ic:'⚔️',c:'#b91c1c',n:'액션에 미친 자',d:'액션 작품 100편 감상',cond:()=>genreSeen('액션'),need:100},
+  {tier:'gold',ic:'🗡️',c:'#7c2d12',n:'무림인',d:'무협 작품 100편 감상',cond:()=>genreSeen('무협'),need:100},
+  {tier:'gold',ic:'🧭',c:'#0a66ff',n:'발굴왕',d:'숨은 명작 10편 발굴',cond:()=>tagSeen('숨은명작'),need:10},
+  {tier:'gold',ic:'👑',c:'#0d9488',n:'장르 유목민',d:'전 장르 1편 이상 제패',cond:()=>genresCovered(),need:ALL_GENRES.length},
+  {tier:'gold',ic:'🏁',c:'#16a34a',n:'완주의 화신',d:'100편 완주(완료)',cond:()=>statusCountAll('done'),need:100},
 ];
+function badgeState(b){const cur=b.cond()||0;return {cur,got:cur>=b.need,need:b.need,pct:Math.min(100,Math.round(cur/b.need*100))}}
+function repBadge(){
+  const earned=BADGES.filter(b=>badgeState(b).got);
+  const pick=earned.find(b=>b.tier==='gold')||earned[earned.length-1];
+  return pick?[pick.n,pick.c]:['신입 항해사','#94a3b8'];
+}
+
 const CREATORS=[
-  {n:'ufotable',role:'제작사',color:'#7c3aed',new:'2026 신작 제작 발표'},
-  {n:'MAPPA',role:'제작사',color:'#e11551',new:'차기작 라인업 공개'},
-  {n:'비가',role:'작가',color:'#d97706',new:'화산귀환 새 시즌 연재'},
+  {n:'ufotable',role:'제작사',color:'#7c3aed',new:'무한성편 극장판 2부 제작'},
+  {n:'MAPPA',role:'제작사',color:'#e11551',new:'2026 신작 라인업 공개'},
+  {n:'WIT STUDIO',role:'제작사',color:'#0ea5e9',new:'오리지널 신작 발표'},
+  {n:'CloverWorks',role:'제작사',color:'#16a34a',new:'스파이 패밀리 새 시즌'},
+  {n:'비가',role:'작가',color:'#d97706',new:'화산귀환 2부 연재'},
   {n:'추공',role:'작가',color:'#0a66ff',new:'차기작 연재 예고'},
+];
+
+/* ============================================================
+   v3: 제작사 페이지 데이터
+============================================================ */
+const STUDIOS={
+  'ufotable':{ko:'유포테이블',en:'ufotable, Inc.',logo:'⚜️',color:'#7c3aed',country:'일본 🇯🇵',founded:2000,status:'활동중',
+    tagline:'작화의 끝을 보여주는 디지털 작화 명가',
+    desc:'디지털 작화와 이펙트 연출에 강점을 지닌 일본 애니메이션 제작사. 액션·배틀 장면의 압도적인 비주얼로 정평이 나 있다.',
+    site:'https://www.ufotable.com',sns:'@ufotable_inc',works:[1],
+    directors:['소토자키 하루오'],cast:['하나에 나츠키','키토 아카리','시모노 히로','마츠오카 요시츠구'],
+    staff:['음악: 카지우라 유키 · 고 시이나','캐릭터 디자인: 마츠시마 아키라','촬영: ufotable'],
+    partners:['집영사(원작)','애니플렉스(제작)'],
+    upcoming:['귀멸의 칼날 무한성편 2부'],news:[['무한성편 극장판 3부작 제작 결정','#'],['해외 IMAX 동시 개봉 확정','#']],
+    similar:['MAPPA','WIT STUDIO']},
+  'MAPPA':{ko:'맙파',en:'MAPPA Co., Ltd.',logo:'🅼',color:'#e11551',country:'일본 🇯🇵',founded:2011,status:'활동중',
+    tagline:'하드코어 연출의 차세대 강자',
+    desc:'2011년 설립된 제작사로, 강렬한 연출과 어두운 분위기의 작품을 다수 제작했다. 최근 대형 IP의 후속 시즌을 잇따라 맡고 있다.',
+    site:'https://www.mappa.co.jp',sns:'@MAPPA_Info',works:[2,3,8],
+    directors:['박성후','야마모토 슈헤이'],cast:['에노키 준야','세토 아사미','토가시 미사키'],
+    staff:['음악: 우시오 켄스케','시리즈 구성: 세코 히로시'],
+    partners:['집영사','코단샤'],upcoming:['주술회전 사옥결전편'],news:[['신작 오리지널 애니 제작 발표','#']],
+    similar:['ufotable','WIT STUDIO']},
+  'WIT STUDIO':{ko:'위트 스튜디오',en:'WIT STUDIO',logo:'🅦',color:'#0ea5e9',country:'일본 🇯🇵',founded:2012,status:'활동중',
+    tagline:'역동적 연출의 드라마 메이커',
+    desc:'Production I.G에서 독립해 설립된 제작사. 진격의 거인 초기 시즌과 스파이 패밀리 등 화제작을 제작했다.',
+    site:'https://wit-studio.co.jp',sns:'@WITSTUDIO_NEWS',works:[3,7],
+    directors:['아라키 테츠로','후루하시 카즈히로'],cast:['카지 유키','이시카와 유이'],
+    staff:['음악: 사와노 히로유키'],partners:['코단샤','집영사'],upcoming:['오리지널 신작 (예정)'],
+    news:[['신규 오리지널 프로젝트 공개','#']],similar:['CloverWorks','MAPPA']},
+  'CloverWorks':{ko:'클로버웍스',en:'CloverWorks Inc.',logo:'🍀',color:'#16a34a',country:'일본 🇯🇵',founded:2018,status:'활동중',
+    tagline:'섬세한 일상과 감성의 스튜디오',
+    desc:'A-1 Pictures 고엔지 스튜디오가 분사해 설립. 감성적 연출과 안정적 작화로 다양한 장르를 소화한다.',
+    site:'https://www.cloverworks.co.jp',sns:'@cloverworks_pr',works:[7],
+    directors:['후루하시 카즈히로'],cast:['하야미 사오리','에구치 타쿠야'],
+    staff:['음악: (K)NoW_NAME'],partners:['집영사'],upcoming:['스파이 패밀리 시즌 3'],
+    news:[['스파이 패밀리 후속 제작 결정','#']],similar:['WIT STUDIO','ufotable']},
+  'TMS':{ko:'TMS 엔터테인먼트',en:'TMS Entertainment',logo:'🅣',color:'#d97706',country:'일본 🇯🇵',founded:1964,status:'활동중',
+    tagline:'반세기 역사의 종합 애니 명가',
+    desc:'1964년 설립된 일본의 노포 애니메이션 제작사. 장수 IP부터 감성 드라마까지 폭넓게 제작한다.',
+    site:'https://www.tms-e.co.jp',sns:'@tms_anime',works:[10],
+    directors:['이바타 요시히데'],cast:['이시카와 유이','우치다 유마'],staff:['음악: 사카키바라 마사루'],
+    partners:['하쿠센샤'],upcoming:[],news:[],similar:['CloverWorks']},
+};
+/* 작가(웹툰) — 가벼운 크리에이터 페이지 */
+const AUTHORS={
+  '비가':{ko:'비가',role:'작가',logo:'✒️',color:'#d97706',country:'대한민국 🇰🇷',tagline:'사이다 무협의 대명사',
+    desc:'통쾌한 전개와 입담으로 사랑받는 웹소설·웹툰 원작 작가.',works:[4]},
+  '추공':{ko:'추공',role:'작가',logo:'✒️',color:'#0a66ff',country:'대한민국 🇰🇷',tagline:'글로벌 흥행 판타지 메이커',
+    desc:'전 세계적으로 흥행한 헌터물 판타지의 원작 작가.',works:[9]},
+};
+function studioWorks(name){
+  const s=STUDIOS[name]||AUTHORS[name];
+  if(s&&s.works) return s.works.map(byId).filter(Boolean);
+  // 폴백: info 값에서 매칭
+  return WORKS.filter(w=>Object.values(w.info).some(v=>String(v).includes(name)));
+}
+function studioYear(w){const m=String(w.info.방영||'').match(/(\d{4})/);return m?+m[1]:(w.id*0+2020)}
+
+/* ============================================================
+   v3: 시리즈 트리 (작품관)
+============================================================ */
+const SERIES=[
+  {name:'귀멸의 칼날',color:'#7c3aed',wid:1,entries:[
+    {t:'1기 · 탄지로 입지편',sub:'TV · 2019',wid:1},
+    {t:'극장판 · 무한열차편',sub:'극장판 · 2020',wid:1},
+    {t:'2기 · 유곽편',sub:'TV · 2021',wid:1},
+    {t:'3기 · 도공 마을편',sub:'TV · 2023',wid:1},
+    {t:'4기 · 합동 강화 훈련편',sub:'TV · 2024',wid:1},
+    {t:'무한성편 극장판',sub:'극장판 · 2025~',wid:1},
+  ]},
+  {name:'진격의 거인',color:'#1e293b',wid:3,entries:[
+    {t:'시즌 1',sub:'2013',wid:3},{t:'시즌 2',sub:'2017',wid:3},
+    {t:'시즌 3',sub:'2018~19',wid:3},{t:'The Final Season',sub:'2020~23',wid:3},
+  ]},
+  {name:'화산귀환',color:'#d97706',wid:4,entries:[
+    {t:'1부 · 화산 귀환',sub:'웹툰',wid:4},{t:'2부 · 정파대전',sub:'웹툰 · 연재중',wid:4},
+  ]},
 ];
 
 /* ============================================================
@@ -859,6 +1119,11 @@ function renderWorks(){
     ${active?`<div style="font-size:13px;color:var(--ink-2);font-weight:600;margin-bottom:14px">${mood?`<b style="color:var(--ink)">${mood.e} ${mood.l}</b>`:''}${mood&&q?' · ':''}${q?`“${STATE.search}”`:''} 결과 ${list.length}편 · <button style="color:var(--accent);font-weight:700" onclick="clearFilters()">전체 보기</button></div>`:''}
     ${list.length?`<div class="grid works">${list.map(posterCard).join('')}</div>`
       :`<div class="empty"><div class="e">🌊</div><p>조건에 맞는 작품이 아직 없어요.<br>다른 무드나 키워드로 찾아보세요.</p></div>`}
+  </div>
+
+  <div class="section">
+    <div class="section-head"><h2>시리즈 순서</h2><span class="sub">연관작을 트리로 · 본 항목 체크 → 다음 볼 작품 자동 표시</span></div>
+    ${seriesTreesHTML()}
   </div>`;
 }
 function setMood(k){STATE.moodFilter=(STATE.moodFilter===k?null:k);STATE.search='';const si=document.getElementById('searchInput');if(si)si.value='';if(CURRENT!=='works')go('works');else renderWorks();}
@@ -925,6 +1190,16 @@ function openDetail(id){
         </div>
       </div>
 
+      ${w.book?`
+      <div class="block">
+        <h3>단행본 구매</h3>
+        <div class="buy-card">
+          <div class="buy-ic">📚</div>
+          <div style="flex:1;min-width:0"><div class="buy-t">종이책 단행본 소장</div><div class="buy-p">${w.book.price}</div></div>
+          <a class="btn btn-primary buy-btn" href="${w.book.url}${encodeURIComponent(w.t)}" target="_blank" rel="noopener" onclick="toast('${w.book.store}에서 「${w.t}」 검색')">${w.book.store}에서 구매 →</a>
+        </div>
+      </div>`:''}
+
       ${w.timeline?`
       <div class="block">
         <h3>시리즈 타임라인</h3>
@@ -937,11 +1212,15 @@ function openDetail(id){
       </div>`:''}
 
       <div class="block">
-        <h3>코멘트 <span style="color:var(--ink-3);font-weight:700">${w.count.toLocaleString()}</span></h3>
+        <h3>코멘트 · 평가 <span style="color:var(--ink-3);font-weight:700">${w.count.toLocaleString()}</span></h3>
         <div class="cmt-input">
+          <div style="display:flex;align-items:center;gap:9px;margin-bottom:10px">
+            <span style="font-size:12.5px;font-weight:700;color:var(--ink-3)">내 별점</span>
+            <div class="stars" id="cmtStars" style="font-size:21px">${[1,2,3,4,5].map(i=>`<span class="s ${i<=(STATE.ratings[id]||0)?'on':''}" data-v="${i}" onclick="setCmtRate(${id},${i})">★</span>`).join('')}</div>
+          </div>
           <textarea id="cmtInput" placeholder="이 작품, 한 줄로 영업한다면? (스포일러는 가려서 작성해요)"></textarea>
           <div class="row">
-            <span style="font-size:12.5px;color:var(--ink-3);font-weight:600">이거 좋아하면 → 추천 작품 태그 가능</span>
+            <span style="font-size:12.5px;color:var(--ink-3);font-weight:600">별점 + 평가글이 함께 등록돼요</span>
             <button class="btn btn-primary" style="padding:9px 18px" onclick="postComment(${id})">등록</button>
           </div>
         </div>
@@ -997,13 +1276,21 @@ function toggleSave(id){
   if(STATE.saved.has(id)){STATE.saved.delete(id);b.classList.remove('on');b.textContent='+ 보고싶어요';toast('보고싶어요에서 뺐어요')}
   else{STATE.saved.add(id);b.classList.add('on');b.textContent='✓ 보고싶어요 담음';toast('🌊 보고싶어요에 담았어요 · 컬렉션 도감에 추가')}
 }
+function setCmtRate(id,n){
+  STATE.ratings[id]=n;
+  document.querySelectorAll('#cmtStars .s').forEach(s=>s.classList.toggle('on',+s.dataset.v<=n));
+  document.querySelectorAll('#stars .s').forEach(s=>s.classList.toggle('on',+s.dataset.v<=n));
+  const lab=document.querySelector('.myrate .lab');if(lab)lab.textContent=`내 별점 (${n}.0)`;
+}
 function postComment(id){
   const ta=document.getElementById('cmtInput');const txt=ta.value.trim();
   if(!txt){toast('한 줄이라도 영업글을 적어주세요');ta.focus();return}
-  const rv={n:'소연(나)',av:'#ff2e63',badge:['항해사','#0a66ff'],r:STATE.ratings[id]||5,reco:'',b:txt,help:0,cmt:0};
+  if(!STATE.ratings[id]){toast('⭐ 별점을 먼저 선택해주세요');return}
+  STATE.myReviews=(STATE.myReviews||0)+1;
+  const rv={n:STATE.profile.name+'(나)',av:'#ff2e63',badge:repBadge(),r:STATE.ratings[id],reco:'',b:txt,help:0,cmt:0};
   const list=document.getElementById('cmtList');
   list.insertAdjacentHTML('afterbegin',commentHTML(rv));
-  ta.value='';toast('💬 코멘트가 등록됐어요');
+  ta.value='';toast('💬 별점과 평가글이 등록됐어요');
 }
 function bumpHelp(btn){const b=btn.querySelector('b');b.textContent=+b.textContent+1;btn.style.color='var(--accent)'}
 
@@ -1051,11 +1338,11 @@ function renderFollow(){
     <div style="font-size:12.5px;color:var(--ink-3);font-weight:700;margin-bottom:9px">🔔 팔로우한 작가·제작사 신작 알림</div>
     <div style="display:flex;gap:13px;overflow-x:auto;padding-bottom:14px;margin-bottom:24px;scrollbar-width:none">
       ${CREATORS.map(c=>{const on=STATE.followCreators.has(c.n);return `
-        <div class="cre-card">
-          <div class="ic" style="background:${c.color}">${c.n[0].toUpperCase()}</div>
+        <div class="cre-card" style="cursor:pointer" onclick="openStudio('${c.n}')">
+          <div class="ic" style="background:${c.color}">${(STUDIOS[c.n]?STUDIOS[c.n].logo:c.n[0].toUpperCase())}</div>
           <div class="nm">${c.n}</div><div class="role">${c.role}</div>
           <div class="new">🆕 ${c.new}</div>
-          <button class="${on?'on':''}" onclick="toggleCreator('${c.n}',this)">${on?'✓ 팔로잉':'+ 팔로우'}</button>
+          <button class="${on?'on':''}" onclick="event.stopPropagation();toggleCreator('${c.n}',this)">${on?'✓ 팔로잉':'+ 팔로우'}</button>
         </div>`}).join('')}
     </div>
     <div style="font-size:12.5px;color:var(--ink-3);font-weight:700;margin-bottom:11px">💬 큐레이터의 한 줄 영업</div>
@@ -1092,6 +1379,195 @@ function toggleFollow(n,btn){
   else{STATE.following.add(n);btn.classList.add('on');btn.textContent='팔로잉';toast(`${n}님을 팔로우했어요`)}
 }
 function bumpLike(btn){const b=btn.querySelector('b');b.textContent=+b.textContent+1;btn.style.color='var(--accent)'}
+
+/* ============================================================
+   v3: 제작사 페이지
+============================================================ */
+let STU={name:null,genre:'all',type:'all',status:'all',sort:'recent',unseen:false};
+const STU_CMT={
+  'ufotable':[{n:'심야애니러',c:'#0a66ff',b:'작화로는 여기가 국밥. 믿고 보는 스튜디오.',h:88}],
+  'MAPPA':[{n:'탄지로형',c:'#ff2e63',b:'연출 미쳤는데 제작 환경 이슈는 늘 아쉽다.',h:54}],
+};
+function openStudio(name){
+  const s=STUDIOS[name]||AUTHORS[name];
+  if(!s){toast('정보가 준비 중이에요');return}
+  STU={name,genre:'all',type:'all',status:'all',sort:'recent',unseen:false};
+  CURRENT='follow';renderTabs();window.scrollTo({top:0,behavior:'smooth'});
+  renderStudio();
+}
+function studioFilteredWorks(){
+  let ws=studioWorks(STU.name);
+  if(STU.genre!=='all')ws=ws.filter(w=>w.genres.includes(STU.genre));
+  if(STU.type!=='all')ws=ws.filter(w=>w.type.includes(STU.type));
+  if(STU.status!=='all')ws=ws.filter(w=>w.status===STU.status);
+  if(STU.unseen){const seen=seenIds();ws=ws.filter(w=>!seen.has(w.id))}
+  ws=ws.slice();
+  if(STU.sort==='rating')ws.sort((a,b)=>b.rating-a.rating);
+  else if(STU.sort==='popular')ws.sort((a,b)=>b.count-a.count);
+  else ws.sort((a,b)=>studioYear(b)-studioYear(a));
+  return ws;
+}
+function studioSet(k,val){STU[k]=val;renderStudio()}
+function studioUnseen(){STU.unseen=!STU.unseen;renderStudio()}
+function renderStudio(){
+  const name=STU.name;
+  const s=STUDIOS[name]||AUTHORS[name];
+  const isStudio=!!STUDIOS[name];
+  const all=studioWorks(name);
+  const list=studioFilteredWorks();
+  const avg=all.length?(all.reduce((a,w)=>a+w.rating,0)/all.length).toFixed(1):'-';
+  const done=all.filter(w=>w.status==='완결').length;
+  const onair=all.filter(w=>w.status==='연재중').length;
+  const inLib=all.filter(w=>STATE.saved.has(w.id)||STATE.status[w.id]).length;
+  const top3=all.slice().sort((a,b)=>b.rating-a.rating).slice(0,3);
+  // 장르 분포
+  const gc={};all.forEach(w=>w.genres.forEach(g=>gc[g]=(gc[g]||0)+1));
+  const gmax=Math.max(1,...Object.values(gc));
+  const genreOpts=[...new Set(all.flatMap(w=>w.genres))];
+  const typeOpts=[...new Set(all.map(w=>w.type.split(' ')[0]))];
+  // 타임라인 (연도별)
+  const byYear={};all.forEach(w=>{const y=studioYear(w);(byYear[y]=byYear[y]||[]).push(w)});
+  const years=Object.keys(byYear).sort((a,b)=>b-a);
+  const seriesOf=SERIES.find(se=>all.some(w=>w.id===se.wid));
+  const on=STATE.followCreators.has(name);
+  const fo=name; // follow uses creators set
+  const v=document.getElementById('view');
+  v.innerHTML=`
+  <button class="back" onclick="go('follow')">← 팔로우 전용관으로</button>
+  <div class="studio-hero">
+    <div class="studio-logo" style="background:${s.color||'#0a66ff'}">${s.logo||name[0]}</div>
+    <div class="studio-hd">
+      <h1>${s.ko||name} ${isStudio?`<span class="studio-status">${s.status}</span>`:`<span class="studio-status" style="background:#eef4ff;color:var(--blue)">${s.role||'작가'}</span>`}</h1>
+      <div class="en">${s.en||name}</div>
+      <div class="meta">${s.country||''}${s.founded?` · ${s.founded}년 설립`:''} · 제작 ${all.length}편${avg!=='-'?` · 평균 ★${avg}`:''}</div>
+      <div class="tagline">“${s.tagline||''}”</div>
+      <div class="studio-links">
+        <button class="foll ${on?'on':''}" onclick="toggleCreator('${name}',this);renderStudio()">${on?'✓ 팔로잉 (신작 알림)':'+ 팔로우'}</button>
+        ${s.site?`<a href="${s.site}" target="_blank" rel="noopener" onclick="toast('공식 사이트로 이동')">🌐 공식 사이트</a>`:''}
+        ${s.sns?`<a href="#" onclick="event.preventDefault();toast('${s.sns}')">𝕏 ${s.sns}</a>`:''}
+      </div>
+    </div>
+  </div>
+
+  <div class="block">
+    <p class="synopsis">${s.desc||''}</p>
+  </div>
+
+  <div class="block">
+    <h3>통계 · 평가</h3>
+    <div class="studio-stats">
+      <div class="ss-card"><div class="n">${all.length}</div><div class="l">총 제작 편수</div></div>
+      <div class="ss-card"><div class="n">★${avg}</div><div class="l">평균 별점</div></div>
+      <div class="ss-card"><div class="n">${all.length?Math.round(done/all.length*100):0}%</div><div class="l">완결 비율</div></div>
+      <div class="ss-card"><div class="n">${onair}</div><div class="l">연재·방영 중</div></div>
+      <div class="ss-card"><div class="n">${inLib}</div><div class="l">내 보관함</div></div>
+    </div>
+    <div style="font-size:13px;font-weight:800;margin:16px 0 10px">장르 분포</div>
+    <div class="gdist">
+      ${Object.entries(gc).sort((a,b)=>b[1]-a[1]).map(([g,n])=>`<div class="row"><span class="gl">${g}</span><span class="gt"><i style="width:${Math.round(n/gmax*100)}%"></i></span><span class="gn">${n}</span></div>`).join('')}
+    </div>
+  </div>
+
+  <div class="block">
+    <h3>대표작 TOP 3 <span style="color:var(--ink-3);font-weight:700;font-size:13px">유저 평점순</span></h3>
+    <div class="grid works">${top3.map(posterCard).join('')}</div>
+  </div>
+
+  <div class="block">
+    <h3>작품 목록 <span style="color:var(--ink-3);font-weight:700;font-size:13px">${list.length}편</span></h3>
+    <div class="sfilter2">
+      <select onchange="studioSet('genre',this.value)"><option value="all">장르 전체</option>${genreOpts.map(g=>`<option ${STU.genre===g?'selected':''}>${g}</option>`).join('')}</select>
+      <select onchange="studioSet('type',this.value)"><option value="all">타입 전체</option>${typeOpts.map(t=>`<option ${STU.type===t?'selected':''}>${t}</option>`).join('')}</select>
+      <select onchange="studioSet('status',this.value)"><option value="all">상태 전체</option><option ${STU.status==='연재중'?'selected':''}>연재중</option><option ${STU.status==='완결'?'selected':''}>완결</option></select>
+      <select onchange="studioSet('sort',this.value)"><option value="recent" ${STU.sort==='recent'?'selected':''}>최신순</option><option value="rating" ${STU.sort==='rating'?'selected':''}>평점순</option><option value="popular" ${STU.sort==='popular'?'selected':''}>인기순</option></select>
+      <button class="chip ${STU.unseen?'tag':''}" style="cursor:pointer" onclick="studioUnseen()">${STU.unseen?'✓ ':''}아직 안 본 것만</button>
+    </div>
+    ${list.length?`<div class="grid works">${list.map(posterCard).join('')}</div>`:`<div class="empty"><div class="e">🔍</div><p>조건에 맞는 작품이 없어요.</p></div>`}
+  </div>
+
+  ${isStudio?`
+  <div class="block">
+    <h3>제작진</h3>
+    <div style="font-size:12.5px;color:var(--ink-3);font-weight:700;margin-bottom:7px">대표 감독</div>
+    <div class="crew-wrap" style="margin-bottom:14px">${(s.directors||[]).map(d=>`<button class="crew-chip" onclick="openDirector('${d}','${name}')">🎬 ${d}</button>`).join('')}</div>
+    <div style="font-size:12.5px;color:var(--ink-3);font-weight:700;margin-bottom:7px">주요 성우진</div>
+    <div class="crew-wrap" style="margin-bottom:14px">${(s.cast||[]).map(c=>`<span class="crew-chip static">🎙️ ${c}</span>`).join('')}</div>
+    <div style="font-size:12.5px;color:var(--ink-3);font-weight:700;margin-bottom:7px">주요 스태프 · 협업</div>
+    <div class="crew-wrap">${(s.staff||[]).concat((s.partners||[]).map(p=>'🤝 '+p)).map(c=>`<span class="crew-chip static">${c}</span>`).join('')}</div>
+  </div>`:''}
+
+  <div class="block">
+    <h3>타임라인</h3>
+    ${seriesOf?`<div class="stl-item"><span class="yr">시리즈</span><span class="wk" onclick="go('works')">${seriesOf.name} · ${seriesOf.entries.length}개 시즌·극장판 묶음 ↗</span></div>`:''}
+    ${years.map(y=>`<div class="stl-item"><span class="yr">${y}</span><div>${byYear[y].map(w=>`<div class="wk" onclick="openDetail(${w.id})">${w.t} · ★${w.rating}</div>`).join('')}</div></div>`).join('')}
+  </div>
+
+  ${(s.upcoming&&s.upcoming.length)||(s.news&&s.news.length)?`
+  <div class="block">
+    <h3>신작 · 소식</h3>
+    ${(s.upcoming||[]).map(u=>`<div class="stl-item"><span class="yr" style="color:var(--accent)">예정</span><span class="wk static">${u}</span></div>`).join('')}
+    ${(s.news||[]).map(nw=>`<div class="stl-item"><span class="yr" style="color:var(--ink-3);font-size:12px">뉴스</span><a class="wk" href="${nw[1]}" onclick="event.preventDefault();toast('관련 뉴스로 이동')" style="text-decoration:none">${nw[0]} ↗</a></div>`).join('')}
+  </div>`:''}
+
+  ${s.similar&&s.similar.length?`
+  <div class="block">
+    <h3>이 제작사를 좋아하면</h3>
+    <div class="sim-row">
+      ${s.similar.map(sn=>{const ss=STUDIOS[sn];if(!ss)return '';return `<div class="sim-card" onclick="openStudio('${sn}')"><div class="lg" style="background:${ss.color}">${ss.logo}</div><div class="nm">${sn}</div><div class="rl">${ss.tagline.slice(0,14)}…</div></div>`}).join('')}
+    </div>
+  </div>`:''}
+
+  <div class="block">
+    <h3>유저 코멘트</h3>
+    <div class="cmt-input">
+      <textarea id="stuCmt" placeholder="이 제작사에 대한 한 줄 평가를 남겨보세요"></textarea>
+      <div class="row"><span style="font-size:12.5px;color:var(--ink-3);font-weight:600">제작사 단위로도 평가가 쌓여요</span><button class="btn btn-primary" style="padding:9px 18px" onclick="postStudioCmt('${name}')">등록</button></div>
+    </div>
+    <div id="stuCmtList" style="margin-top:8px">${(STU_CMT[name]||[]).map(stuCmtHTML).join('')||`<div style="padding:14px;color:var(--ink-3);font-weight:600;font-size:13px">첫 코멘트를 남겨보세요!</div>`}</div>
+  </div>`;
+}
+function stuCmtHTML(c){return `<div class="cmt"><div class="head"><div class="mini-av" style="background:${c.c}">${c.n[0]}</div><span class="nm">${c.n}</span></div><div class="body">${c.b}</div><div class="foot"><button onclick="bumpHelp(this)">👍 도움돼요 <b>${c.h}</b></button></div></div>`}
+function postStudioCmt(name){
+  const ta=document.getElementById('stuCmt');const t=ta.value.trim();if(!t){toast('내용을 입력해주세요');return}
+  (STU_CMT[name]=STU_CMT[name]||[]).unshift({n:STATE.profile.name+'(나)',c:'#ff2e63',b:t,h:0});
+  document.getElementById('stuCmtList').innerHTML=STU_CMT[name].map(stuCmtHTML).join('');
+  ta.value='';toast('💬 제작사 코멘트를 등록했어요');
+}
+function openDirector(name,studio){
+  const ws=WORKS.filter(w=>String(w.info.감독||'').includes(name));
+  const rep=ws.length?ws:studioWorks(studio);
+  openModal(`<div class="modal-head"><h2>🎬 ${name}</h2><button class="x" onclick="closeModal()">✕</button></div>
+    <div class="modal-body">
+      <p style="font-size:13.5px;color:var(--ink-2);font-weight:600;margin-bottom:14px">${studio} 소속 감독 · 대표 참여작</p>
+      ${rep.map(w=>`<div class="reco-mini" onclick="closeModal();openDetail(${w.id})"><div class="pp" style="background:${grad(w.genres[0])}"></div><div><div class="t">${w.t}</div><div class="s">${w.type} · ★${w.rating}</div></div></div>`).join('')}
+    </div>`);
+}
+
+/* ============================================================
+   v3: 시리즈 트리 (작품관)
+============================================================ */
+function seriesTreesHTML(){
+  return `<div class="series-grid">${SERIES.map((se,si)=>{
+    const total=se.entries.length;
+    const doneN=se.entries.filter((e,ei)=>STATE.seriesProgress.has(si+'-'+ei)).length;
+    let nextShown=false;
+    return `<div class="series-card">
+      <div class="sh"><span class="sd" style="background:${se.color}"></span><span class="t">${se.name}</span><span class="c">${doneN}/${total} 시청</span></div>
+      ${se.entries.map((e,ei)=>{
+        const done=STATE.seriesProgress.has(si+'-'+ei);
+        const isNext=!done&&!nextShown;if(isNext)nextShown=true;
+        return `<div class="snode ${done?'done':''} ${isNext?'next':''}">
+          <div class="ck" onclick="event.stopPropagation();toggleSeries(${si},${ei})">✓</div>
+          <div style="flex:1;min-width:0" onclick="openDetail(${e.wid})"><div class="nm">${e.t}</div><div class="sub">${e.sub}</div></div>
+          ${isNext?'<span class="nexttag">다음 시청</span>':`<span class="open" onclick="openDetail(${e.wid})">›</span>`}
+        </div>`}).join('')}
+    </div>`}).join('')}</div>`;
+}
+function toggleSeries(si,ei){
+  const key=si+'-'+ei;
+  if(STATE.seriesProgress.has(key))STATE.seriesProgress.delete(key);else STATE.seriesProgress.add(key);
+  if(CURRENT==='works')renderWorks();
+}
 
 /* ============================================================
    콘텐츠관 (덕질은 여기서) — 미니 서비스
@@ -1287,32 +1763,34 @@ function renderMypage(){
   const v=document.getElementById('view');
   const savedWorks=[...STATE.saved].map(byId);
   const ratedCount=Object.keys(STATE.ratings).length;
-  const doneCount=Object.values(STATE.status).filter(s=>s==='done').length;
+  const doneCount=statusCountAll('done');
   const topGenre='무협';
   v.innerHTML=`
   <div class="mp-profile">
-    <div class="mp-av">소</div>
+    <div class="mp-av">${STATE.profile.name[0]}</div>
     <div>
-      <div class="nm">소연 <span class="badge-pill" style="background:#0a66ff">취향궁합 88%</span></div>
+      <div class="nm">${STATE.profile.name} <span class="badge-pill" style="background:#0a66ff">취향궁합 88%</span></div>
+      ${STATE.profile.bio?`<div style="font-size:13px;color:var(--ink-2);font-weight:600;margin-top:5px">${STATE.profile.bio}</div>`:''}
       <div class="titles">
         ${STATE.taste?`<span class="chip" style="color:var(--blue);background:#eef4ff">✨ ${STATE.taste.nickname}</span>`:''}
         <span class="chip" style="color:#d97706;background:#fef3c7">🏔️ 초절정 고수</span>
         <span class="chip" style="color:#ffaf1a;background:#fff7e0">🥕 큐레이터 Lv.3</span>
         <span class="chip" style="color:#10b981;background:#e7f9f0">🧭 발굴왕</span>
       </div>
+      <button class="edit-prof" onclick="openProfileEdit()">✏️ 프로필 수정</button>
     </div>
     <div class="mp-stats">
-      <div class="mp-stat"><div class="n">${savedWorks.length}</div><div class="l">컬렉션</div></div>
+      <div class="mp-stat"><div class="n">${savedWorks.length}</div><div class="l">보고싶어요</div></div>
+      <div class="mp-stat"><div class="n">${ownedCount()}</div><div class="l">소장</div></div>
       <div class="mp-stat"><div class="n">${doneCount}</div><div class="l">완주</div></div>
       <div class="mp-stat"><div class="n">${ratedCount}</div><div class="l">평가</div></div>
-      <div class="mp-stat"><div class="n">${STATE.followCreators.size}</div><div class="l">크리에이터</div></div>
       <div class="mp-stat"><div class="n">${BADGES.filter(b=>b.got).length}</div><div class="l">배지</div></div>
     </div>
   </div>
 
   <div class="section" style="margin-bottom:26px">
     <div style="display:flex;gap:9px;flex-wrap:wrap">
-      ${Object.entries(STATUS_META).map(([k,m])=>{const c=Object.values(STATE.status).filter(s=>s===k).length;return `<div class="chip" style="font-size:13px;padding:8px 14px"><b style="color:${m.c}">${m.e} ${c}</b>&nbsp;${m.l}</div>`}).join('')}
+      ${Object.entries(STATUS_META).map(([k,m])=>{const c=statusCountAll(k);return `<div class="chip" style="font-size:13px;padding:8px 14px"><b style="color:${m.c}">${m.e} ${c}</b>&nbsp;${m.l}</div>`}).join('')}
       <div class="chip" style="font-size:13px;padding:8px 14px"><b style="color:var(--accent)">🔔 ${STATE.notify.size}</b>&nbsp;알림 중</div>
     </div>
   </div>
@@ -1327,7 +1805,13 @@ function renderMypage(){
   </div>
 
   <div class="section">
-    <div class="section-head"><h2>작품 컬렉션 도감</h2><span class="sub">기록한 모든 작품</span></div>
+    <div class="section-head"><h2>내 소장관</h2><span class="sub">실제로 보고 있는 작품을 등록하고 상태로 관리</span></div>
+    <button class="btn btn-blue" style="margin-bottom:16px" onclick="openRegister()">+ 작품 등록하기</button>
+    ${ownedHTML()}
+  </div>
+
+  <div class="section">
+    <div class="section-head"><h2>작품 컬렉션 도감</h2><span class="sub">보고싶어요는 플랫폼 전체 · 정주행중·완료·보류·하차는 소장 작품만</span></div>
     <div class="sfilter">
       ${[['all','전체'],['saved','💗 보고싶어요'],['watch','▶ 정주행중'],['done','✓ 완료'],['hold','⏸ 보류'],['drop','✕ 하차']].map(([k,l])=>`<button class="${(STATE.mpFilter||'all')===k?'on':''}" onclick="setMpFilter('${k}')">${l}</button>`).join('')}
     </div>
@@ -1336,34 +1820,25 @@ function renderMypage(){
 
   <div class="section">
     <div class="section-head"><h2>배지 & 칭호</h2><span class="sub">활동으로 모으는 컬렉션</span></div>
-    <div class="badge-grid">
-      ${BADGES.map(b=>`<div class="badge-item ${b.got?'':'locked'}">
-        <div class="ic" style="background:${b.c}">${b.ic}</div>
-        <div class="bn">${b.n}</div><div class="bd">${b.got?'획득 완료':b.d}</div></div>`).join('')}
-    </div>
+    <div class="badge-tier-h">🥉 일반 배지 <span class="tg" style="background:var(--bg-soft2);color:var(--ink-2)">간단한 활동으로 수집</span></div>
+    <div class="badge-grid">${BADGES.filter(b=>b.tier==='easy').map(badgeCard).join('')}</div>
+    <div class="badge-tier-h" style="margin-top:24px">🥇 황금 배지 <span class="tg" style="background:#fef3c7;color:#b8860b">상위 1% 난이도 · 헤비 유저의 증표</span></div>
+    <div class="badge-grid">${BADGES.filter(b=>b.tier==='gold').map(badgeCard).join('')}</div>
   </div>
 
-  <div class="section" style="display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start">
-    <div>
-      <div class="section-head"><h2>월간 리포트</h2></div>
-      <div class="report-card">
-        <div class="rh">2026년 6월 · 나의 취향 리포트</div>
-        <h3>이번 달 가장 빠진 장르는 ${topGenre}</h3>
-        <div class="report-row"><span>발견·저장한 작품</span><span class="v">${savedWorks.length}편</span></div>
-        <div class="report-row"><span>남긴 평가</span><span class="v">${ratedCount}개</span></div>
-        <div class="report-row"><span>최애 장르</span><span class="v">${topGenre} · 다크판타지</span></div>
-        <div class="report-row"><span>큐레이터 등급</span><span class="v">Lv.3 → Lv.4까지 28%</span></div>
-      </div>
-    </div>
-    <div>
-      <div class="section-head"><h2>나의 연대기</h2></div>
-      <div class="card" style="padding:22px">
-        <div class="chronicle">
-          <div class="chr-item"><div class="dt">2026.06.27</div><div class="tx">올블루에 합류해 항해를 시작했어요 ⚓</div></div>
-          <div class="chr-item"><div class="dt">2026.06</div><div class="tx">‘무협’ 장르를 ${'★'.repeat(5)} 정주행 — 초절정 고수 칭호 획득</div></div>
-          <div class="chr-item"><div class="dt">2026.05</div><div class="tx">숨은 명작 3개를 발굴해 발굴왕 배지를 달았어요</div></div>
-          <div class="chr-item"><div class="dt">2026.04</div><div class="tx">첫 한 줄 영업글이 도움돼요 100개를 받았어요</div></div>
-        </div>
+  <div class="section">
+    <div class="section-head"><h2>월간 리포트</h2><span class="sub">2026년 나의 감상 기록</span></div>
+    ${monthlyReportHTML()}
+  </div>
+
+  <div class="section">
+    <div class="section-head"><h2>나의 연대기</h2></div>
+    <div class="card" style="padding:22px">
+      <div class="chronicle">
+        <div class="chr-item"><div class="dt">2026.06.27</div><div class="tx">올블루에 합류해 항해를 시작했어요 ⚓</div></div>
+        <div class="chr-item"><div class="dt">2026.06</div><div class="tx">‘무협’ 장르를 ${'★'.repeat(5)} 정주행 — 초절정 고수 칭호 획득</div></div>
+        <div class="chr-item"><div class="dt">2026.05</div><div class="tx">숨은 명작 3개를 발굴해 발굴왕 배지에 도전 중</div></div>
+        <div class="chr-item"><div class="dt">2026.04</div><div class="tx">첫 한 줄 영업글이 도움돼요 100개를 받았어요</div></div>
       </div>
     </div>
   </div>`;
@@ -1374,14 +1849,224 @@ function renderMypage(){
 ============================================================ */
 function collectionHTML(){
   const f=STATE.mpFilter||'all';
-  let list;
-  if(f==='all') list=WORKS.filter(w=>STATE.saved.has(w.id)||STATE.status[w.id]);
-  else if(f==='saved') list=WORKS.filter(w=>STATE.saved.has(w.id));
-  else list=WORKS.filter(w=>STATE.status[w.id]===f);
-  if(!list.length) return `<div class="empty"><div class="e">📖</div><p>이 분류에 담긴 작품이 아직 없어요.<br>작품관에서 ‘보고싶어요’나 시청 상태를 기록해보세요.</p><button class="btn btn-primary" style="margin-top:14px" onclick="go('works')">작품 보러가기</button></div>`;
-  return `<div class="grid works">${list.map(posterCard).join('')}</div>`;
+  let cards=[];
+  if(f==='saved'){
+    const ws=WORKS.filter(w=>STATE.saved.has(w.id));
+    if(!ws.length) return emptyCol('보고싶어요에 담은 작품이 없어요','작품관에서 ‘+ 보고싶어요’를 눌러보세요','works');
+    cards=ws.map(posterCard);
+  } else if(f==='all'){
+    const ws=WORKS.filter(w=>STATE.saved.has(w.id)||STATE.status[w.id]);
+    cards=ws.map(posterCard).concat(STATE.customWorks.map(customPoster));
+    if(!cards.length) return emptyCol('아직 도감이 비어 있어요','보고싶어요를 담거나 소장 작품을 등록해보세요','works');
+  } else {
+    const cat=WORKS.filter(w=>STATE.status[w.id]===f).map(posterCard);
+    const cus=STATE.customWorks.filter(c=>c.status===f).map(customPoster);
+    cards=cat.concat(cus);
+    if(!cards.length) return emptyCol('이 상태의 소장 작품이 없어요','내 소장관에서 작품을 등록해보세요','none');
+  }
+  return `<div class="grid works">${cards.join('')}</div>`;
+}
+function emptyCol(t,s,dest){return `<div class="empty"><div class="e">📖</div><p>${t}<br>${s}</p>${dest!=='none'?`<button class="btn btn-primary" style="margin-top:14px" onclick="go('${dest}')">작품 보러가기</button>`:''}</div>`}
+function customPoster(c){
+  const cover=c.cover?`background-image:url('${c.cover}');background-size:cover;background-position:center`:`background:${grad(c.genre||'')}`;
+  const m=STATUS_META[c.status];
+  return `<div class="poster-card" onclick="toast('직접 등록한 작품 · 내 소장관에서 관리해요')">
+    <div class="poster" style="${cover}">
+      <span class="badge">직접 등록</span>
+      <span class="ptitle">${c.cover?'':c.title}</span>
+      ${m?`<span class="statustag" style="background:${m.c}">${m.e} ${m.l}</span>`:''}
+    </div>
+    <div class="meta"><div class="t">${c.title}</div><div class="r">${c.type||''}${c.genre?' · '+c.genre:''}</div></div>
+  </div>`;
 }
 function setMpFilter(k){STATE.mpFilter=k;renderMypage();}
+
+/* v3: 뱃지 카드(진행도 포함) */
+function badgeCard(b){
+  const st=badgeState(b);const gold=b.tier==='gold';
+  return `<div class="badge-item ${gold?'gold':''} ${st.got?'got':''}">
+    ${gold?'<span class="goldtag">GOLD</span>':''}${st.got?'<span class="gotmark">✅</span>':''}
+    <div class="ic" style="background:${st.got?b.c:'var(--line-2)'}">${b.ic}</div>
+    <div class="bn">${b.n}</div>
+    <div class="bd">${b.d}</div>
+    ${st.got?'':`<div class="prog"><i style="width:${st.pct}%"></i></div><div class="pv">${st.cur.toLocaleString()} / ${st.need.toLocaleString()}</div>`}
+  </div>`;
+}
+
+/* v3: 월간 리포트 대시보드 */
+function monthlyReportHTML(){
+  const VIEWLOG={2:[1],3:[2,8],5:[7],6:[3],13:[5],15:[4],16:[11],18:[10],20:[6],21:[9],22:[12],23:[1],27:[2],28:[3]};
+  const MONTHLY=[32,27,27,26,26,21,0,0,0,0,0,0];
+  const stats={total:159,monthAvg:'26.5',avgRating:'4.5',episodes:'1,284'};
+  const maxM=Math.max(...MONTHLY,1);
+  const first=new Date(2026,5,1).getDay();
+  const dows=['일','월','화','수','목','금','토'];
+  let cells='';
+  for(let i=0;i<first;i++)cells+=`<div class="cal-cell empty"></div>`;
+  for(let d=1;d<=30;d++){
+    const ids=VIEWLOG[d];
+    if(ids){const w=byId(ids[0]);cells+=`<div class="cal-cell has" style="background:${grad(w.genres[0])}"><span class="dn">${d}</span>${ids.length>1?`<span class="cnt">${ids.length}</span>`:''}</div>`}
+    else cells+=`<div class="cal-cell">${d}</div>`;
+  }
+  const pct=Math.min(100,Math.round(stats.total/200*100));
+  return `<div class="mr-wrap">
+    <div class="mr-profile">
+      <div class="av">${STATE.profile.name[0]}</div>
+      <div class="nm">${STATE.profile.name}</div>
+      <div class="id">@ollblue_user</div>
+      <div class="mr-ring" style="--p:${pct}"><div class="in"><div class="y">‹ 2026년 ›</div><div class="n">${stats.total}</div><div class="u">편</div></div></div>
+    </div>
+    <div class="mr-main">
+      <div class="mr-stats">
+        <div class="mr-stat"><div class="l">올해 본 작품</div><div class="v">${stats.total}편</div></div>
+        <div class="mr-stat"><div class="l">월평균</div><div class="v">${stats.monthAvg}편</div></div>
+        <div class="mr-stat"><div class="l">별점 평균</div><div class="v">${stats.avgRating}점</div></div>
+        <div class="mr-stat"><div class="l">본 화수</div><div class="v">${stats.episodes}화</div></div>
+      </div>
+      <div class="mr-cal">
+        <div class="top">‹ 6월 ›</div>
+        <div class="cal-grid">${dows.map((d,i)=>`<div class="cal-h ${i===0?'sun':''}">${d}</div>`).join('')}${cells}</div>
+      </div>
+      <div class="mr-bars">
+        ${MONTHLY.map((v,i)=>`<div class="mr-bar ${i+1===6?'cur':''}"><div class="v">${v?v+'편':''}</div><div class="b" style="height:${v?Math.max(6,Math.round(v/maxM*100)):2}%"></div><div class="m">${i+1}월</div></div>`).join('')}
+      </div>
+    </div>
+  </div>`;
+}
+
+/* ===== 소장 작품(catalog 상태 + 직접 등록) ===== */
+function ownedAll(){
+  const cat=WORKS.filter(w=>STATE.status[w.id]).map(w=>({key:'w'+w.id,wid:w.id,title:w.t,type:w.type,genre:w.genres[0],status:STATE.status[w.id],cover:null,custom:false}));
+  const cus=STATE.customWorks.map(c=>({key:c.key,wid:null,title:c.title,type:c.type,genre:c.genre,status:c.status,cover:c.cover,custom:true}));
+  return cat.concat(cus);
+}
+function ownedCount(){return ownedAll().length}
+function statusCountAll(st){return ownedAll().filter(o=>o.status===st).length}
+function ownedHTML(){
+  const list=ownedAll();
+  if(!list.length) return `<div class="empty"><div class="e">🗂️</div><p>아직 소장 작품이 없어요.<br>지금 보고 있는 작품을 등록해 정주행중·완료·보류·하차로 관리해보세요.</p></div>`;
+  return `<div class="owned-grid">${list.map(ownedCard).join('')}</div>`;
+}
+function ownedCard(o){
+  const cover=o.cover?`background-image:url('${o.cover}')`:`background:${grad(o.genre||'')}`;
+  return `<div class="own-card">
+    <div class="own-cover" style="${cover}">${(!o.custom)?o.type.split(' ')[0]:(o.cover?'':'🖼️')}</div>
+    <div class="own-info">
+      <div class="own-t">${o.title}</div>
+      <div class="own-g">${o.type||''}${o.genre?' · '+o.genre:''}${o.custom?' · 직접 등록':''}</div>
+      <div class="reg-status">
+        ${Object.entries(STATUS_META).map(([k,m])=>`<button class="${m.cls} ${o.status===k?'on':''}" onclick="setOwnedStatus('${o.key}','${k}')">${m.e} ${m.l}</button>`).join('')}
+      </div>
+    </div>
+    <button class="own-x" onclick="removeOwned('${o.key}')" title="소장 해제">✕</button>
+  </div>`;
+}
+function setOwnedStatus(key,k){
+  if(/^w\d+$/.test(key)){STATE.status[+key.slice(1)]=k}
+  else{const c=STATE.customWorks.find(x=>x.key===key);if(c)c.status=k}
+  renderMypage();toast(`‘${STATUS_META[k].l}’(으)로 변경했어요`);
+}
+function removeOwned(key){
+  if(/^w\d+$/.test(key)){delete STATE.status[+key.slice(1)]}
+  else{STATE.customWorks=STATE.customWorks.filter(x=>x.key!==key)}
+  renderMypage();toast('소장 목록에서 뺐어요');
+}
+
+/* ===== 작품 등록 모달 (검색 / 직접 추가) ===== */
+let REG={mode:'search',cover:null,custom:{title:'',type:'웹툰',genre:'로맨스',status:'watch'}};
+function openRegister(){
+  REG={mode:'search',cover:null,custom:{title:'',type:'웹툰',genre:'로맨스',status:'watch'}};
+  openModal(`<div class="modal-head"><h2>작품 등록</h2><button class="x" onclick="closeModal()">✕</button></div>
+    <div class="modal-body">
+      <div class="reg-tabs">
+        <button id="rtSearch" onclick="regMode('search')">🔍 플랫폼에서 검색</button>
+        <button id="rtCustom" onclick="regMode('custom')">📷 직접 추가</button>
+      </div>
+      <div id="regBody"></div>
+    </div>`);
+  regRender();
+}
+function regMode(m){REG.mode=m;regRender()}
+function regRender(){
+  const ts=document.getElementById('rtSearch'),tc=document.getElementById('rtCustom');
+  if(ts)ts.classList.toggle('on',REG.mode==='search');
+  if(tc)tc.classList.toggle('on',REG.mode==='custom');
+  document.getElementById('regBody').innerHTML=REG.mode==='search'?regSearchHTML():regCustomHTML();
+  if(REG.mode==='search'){const i=document.getElementById('regQ');if(i)i.focus()}
+}
+function regSearchHTML(){
+  return `<input class="reg-inp" id="regQ" placeholder="작품명·장르 검색 (예: 무협, 로맨스)" oninput="regSearch(this.value)">
+    <div style="font-size:12px;color:var(--ink-3);font-weight:600;margin:2px 0 8px">플랫폼에 있는 작품을 검색해 상태와 함께 등록해요</div>
+    <div id="regResults">${regResultsHTML('')}</div>`;
+}
+function regResultsHTML(q){
+  q=(q||'').trim().toLowerCase();
+  let list=q?WORKS.filter(w=>(w.t+w.genres.join()+w.tags.join()+w.type).toLowerCase().includes(q)):WORKS;
+  if(!list.length) return `<div style="padding:22px;text-align:center;color:var(--ink-3);font-weight:600;font-size:13px">검색 결과가 없어요.<br>‘📷 직접 추가’로 등록해보세요.</div>`;
+  return list.map(w=>{const cur=STATE.status[w.id];return `<div class="reg-row">
+    <div class="pp" style="background:${grad(w.genres[0])}"></div>
+    <div style="flex:1;min-width:0">
+      <div class="t">${w.t}</div>
+      <div class="g">${w.type} · ${w.genres.join('·')} · ★${w.rating}</div>
+      <div class="reg-status">
+        ${Object.entries(STATUS_META).map(([k,m])=>`<button class="${m.cls} ${cur===k?'on':''}" onclick="regAddCatalog(${w.id},'${k}')">${m.e} ${m.l}</button>`).join('')}
+      </div>
+    </div>
+    ${cur?`<span class="reg-done">✓ 소장중</span>`:''}
+  </div>`}).join('');
+}
+function regSearch(q){const r=document.getElementById('regResults');if(r)r.innerHTML=regResultsHTML(q)}
+function regAddCatalog(id,k){
+  STATE.status[id]=k;
+  const q=document.getElementById('regQ');
+  document.getElementById('regResults').innerHTML=regResultsHTML(q?q.value:'');
+  renderMypage();
+  toast(`‘${byId(id).t}’ ${STATUS_META[k].l}(으)로 소장 등록`);
+}
+function regCustomHTML(){
+  const c=REG.custom;
+  const genres=['로맨스','다크판타지','무협','액션','판타지','일상','스릴러','코미디','회귀','먼치킨','드라마','기타'];
+  return `<div class="reg-custom">
+    <label class="reg-photo" for="regPhoto">${REG.cover?`<img src="${REG.cover}">`:`<span class="ph">📷<br>사진 추가</span>`}</label>
+    <input type="file" id="regPhoto" accept="image/*" style="display:none" onchange="regPhoto(this)">
+    <div style="flex:1;min-width:0">
+      <input class="reg-inp" id="rcTitle" placeholder="작품명" maxlength="30" value="${c.title.replace(/"/g,'&quot;')}" oninput="REG.custom.title=this.value">
+      <select class="reg-inp" onchange="REG.custom.type=this.value">${['웹툰','애니','만화','웹소설','기타'].map(t=>`<option ${c.type===t?'selected':''}>${t}</option>`).join('')}</select>
+      <select class="reg-inp" style="margin-bottom:0" onchange="REG.custom.genre=this.value">${genres.map(g=>`<option ${c.genre===g?'selected':''}>${g}</option>`).join('')}</select>
+    </div>
+  </div>
+  <div style="font-size:12px;color:var(--ink-3);font-weight:600;margin:4px 0 2px">플랫폼에 없는 작품은 직접 정보를 입력해 소장 등록해요</div>
+  <span class="pe-lab">시청 상태</span>
+  <div class="reg-status">${Object.entries(STATUS_META).map(([k,m])=>`<button class="${m.cls} ${c.status===k?'on':''}" onclick="REG.custom.status='${k}';regRender()">${m.e} ${m.l}</button>`).join('')}</div>
+  <button class="btn btn-primary" style="width:100%;margin-top:16px" onclick="regCustomSubmit()">소장 등록</button>`;
+}
+function regPhoto(input){const f=input.files&&input.files[0];if(!f)return;const r=new FileReader();r.onload=e=>{REG.cover=e.target.result;regRender()};r.readAsDataURL(f)}
+function regCustomSubmit(){
+  const c=REG.custom;
+  if(!c.title.trim()){toast('작품명을 입력해주세요');return}
+  STATE.customWorks.push({key:'c'+Date.now(),title:c.title.trim(),type:c.type,genre:c.genre,status:c.status,cover:REG.cover});
+  renderMypage();closeModal();toast(`‘${c.title.trim()}’을(를) 소장 등록했어요`);
+}
+
+/* ===== 프로필 수정 ===== */
+function refreshAvatar(){const a=document.getElementById('topAv');if(a)a.textContent=STATE.profile.name[0]||'?'}
+function openProfileEdit(){
+  openModal(`<div class="modal-head"><h2>프로필 수정</h2><button class="x" onclick="closeModal()">✕</button></div>
+    <div class="modal-body">
+      <div style="display:flex;justify-content:center;margin-bottom:18px"><div class="mp-av" id="peAv" style="width:64px;height:64px;font-size:24px">${STATE.profile.name[0]||'?'}</div></div>
+      <span class="pe-lab">이름</span>
+      <input class="reg-inp" id="peName" maxlength="16" value="${STATE.profile.name.replace(/"/g,'&quot;')}" oninput="var a=document.getElementById('peAv');if(a)a.textContent=(this.value[0]||'?')">
+      <span class="pe-lab">한 줄 소개</span>
+      <input class="reg-inp" id="peBio" maxlength="40" placeholder="나를 한 줄로 소개해보세요" value="${(STATE.profile.bio||'').replace(/"/g,'&quot;')}">
+      <button class="btn btn-primary" style="width:100%;margin-top:8px" onclick="saveProfile()">저장</button>
+    </div>`);
+}
+function saveProfile(){
+  const n=document.getElementById('peName').value.trim();
+  if(!n){toast('이름을 입력해주세요');return}
+  STATE.profile.name=n;STATE.profile.bio=document.getElementById('peBio').value.trim();
+  refreshAvatar();closeModal();renderMypage();toast('프로필을 저장했어요');
+}
 
 function wrappedCardHTML(){
   const top3=STATE.top3.map(byId).filter(Boolean);
@@ -1389,7 +2074,7 @@ function wrappedCardHTML(){
   const done=Object.values(STATE.status).filter(s=>s==='done').length;
   return `<div class="wrap-card">
     <div class="wh">⚓ 0LLBLUE WRAPPED · 2026</div>
-    <h2>소연님의 인생작 탑3</h2>
+    <h2>${STATE.profile.name}님의 인생작 탑3</h2>
     <div class="wrap-top3">
       ${top3.length?top3.map((w,i)=>`<div class="wt"><div class="pp" style="background:${grad(w.genres[0])}">${w.t}</div><div class="rk">${['🥇','🥈','🥉'][i]} ${w.t}</div></div>`).join('')
         :`<div class="wt" style="color:#cfe1ff;font-size:13px;font-weight:600">인생작 탑3을 골라보세요 ↓</div>`}
@@ -1670,7 +2355,17 @@ function tasteStart(id){
 /* ============================================================
    부팅
 ============================================================ */
+/* 데모 초기 활동(showcase) — 리포트/뱃지/소장관을 보여주기 위한 시드 */
+[1,3,5,10].forEach(id=>STATE.saved.add(id));
+[1,2,3,5,7,10,12].forEach(id=>STATE.ratings[id]=id===8?4:5);
+STATE.status[1]='done';STATE.status[3]='done';STATE.status[5]='done';STATE.status[10]='done';STATE.status[2]='watch';STATE.status[8]='hold';
+STATE.progress[1]=2;
+STATE.attendance.add(0);STATE.attendance.add(1);STATE.attendance.add(2);STATE.streak=3;
+STATE.myReviews=2;
+STATE.seriesProgress.add('0-0');STATE.seriesProgress.add('0-1');
+
 renderTabs();
+refreshAvatar();
 renderHome();
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
 </script>
