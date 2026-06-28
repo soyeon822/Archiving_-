@@ -562,6 +562,9 @@ select.reg-inp{appearance:none;cursor:pointer}
 .mr-stat .v{font-size:21px;font-weight:900;margin-top:4px;letter-spacing:-.4px}
 .mr-cal{padding:18px 20px}
 .mr-cal .top{text-align:center;font-weight:800;font-size:16px;margin-bottom:14px}
+.mr-nav{width:28px;height:28px;border-radius:9px;background:var(--bg-soft);font-size:15px;color:var(--ink-2);vertical-align:middle}
+.mr-nav:hover{background:var(--bg-soft2);color:var(--ink)}
+.cal-cell.has:hover{transform:translateY(-2px)}
 .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
 .cal-h{text-align:center;font-size:12px;font-weight:700;color:var(--ink-3);padding-bottom:2px}
 .cal-h.sun{color:#ef4444}
@@ -770,6 +773,10 @@ WORKS.forEach(w=>{const e=EXTRA[w.id]||[12,85];w.hours=e[0];w.comp=e[1]});
 const BOOKS={1:['9,000원~','예스24','https://www.yes24.com/product/search?query='],3:['5,500원~','알라딘','https://www.aladin.co.kr/search/wsearchresult.aspx?SearchWord='],4:['12,000원~','교보문고','https://search.kyobobook.co.kr/search?keyword='],5:['13,000원~','알라딘','https://www.aladin.co.kr/search/wsearchresult.aspx?SearchWord='],9:['11,000원~','예스24','https://www.yes24.com/product/search?query='],11:['12,000원~','교보문고','https://search.kyobobook.co.kr/search?keyword=']};
 WORKS.forEach(w=>{const b=BOOKS[w.id];if(b)w.book={price:b[0],store:b[1],url:b[2]}});
 
+/* 작품별 화수/회차(감상 화수 집계용) */
+const EP={1:63,2:47,3:89,4:120,5:80,6:60,7:37,8:24,9:179,10:63,11:150,12:70};
+WORKS.forEach(w=>w.ep=EP[w.id]||40);
+
 const STATE = {
   saved:new Set(),         // 보고싶어요 한 작품
   ratings:{},              // {workId:점수}
@@ -788,6 +795,9 @@ const STATE = {
   customWorks:[],          // 직접 등록한 소장 작품(플랫폼에 없는 것)
   seriesProgress:new Set(),// 시리즈 트리에서 본 항목 키
   myReviews:0,             // 내가 작성한 평가 수
+  viewLog:{},              // 'monthIndex-day' → [{wid,ep}] 실제 감상 기록
+  reportMonth:5,           // 월간 리포트 표시 월 (0=1월, 5=6월)
+  reportYear:2026,
 };
 const STATUS_META={
   watch:{l:'정주행 중',e:'▶',c:'#0a66ff',cls:'s-watch'},
@@ -1828,7 +1838,7 @@ function renderMypage(){
 
   <div class="section">
     <div class="section-head"><h2>월간 리포트</h2><span class="sub">2026년 나의 감상 기록</span></div>
-    ${monthlyReportHTML()}
+    <div id="mrBox">${monthlyReportHTML()}</div>
   </div>
 
   <div class="section">
@@ -1893,45 +1903,71 @@ function badgeCard(b){
   </div>`;
 }
 
-/* v3: 월간 리포트 대시보드 */
+/* v3: 월간 리포트 — 실제 감상 로그(STATE.viewLog) 기반, 클릭 시 작품 이동 */
+function reportStats(){
+  let total=0,eps=0;
+  Object.values(STATE.viewLog).forEach(arr=>arr.forEach(e=>{total++;eps+=e.ep}));
+  const months=new Set(Object.keys(STATE.viewLog).map(k=>k.split('-')[0])).size||1;
+  const rv=Object.values(STATE.ratings);
+  const avg=rv.length?rv.reduce((a,b)=>a+b,0)/rv.length:0;
+  return {total,eps,monthAvg:(total/months).toFixed(1),avg:avg?avg.toFixed(1):'-'};
+}
+function monthCount(mi){let n=0;Object.keys(STATE.viewLog).forEach(k=>{if(+k.split('-')[0]===mi)n+=STATE.viewLog[k].length});return n}
 function monthlyReportHTML(){
-  const VIEWLOG={2:[1],3:[2,8],5:[7],6:[3],13:[5],15:[4],16:[11],18:[10],20:[6],21:[9],22:[12],23:[1],27:[2],28:[3]};
-  const MONTHLY=[32,27,27,26,26,21,0,0,0,0,0,0];
-  const stats={total:159,monthAvg:'26.5',avgRating:'4.5',episodes:'1,284'};
-  const maxM=Math.max(...MONTHLY,1);
-  const first=new Date(2026,5,1).getDay();
+  const st=reportStats();
+  const m=STATE.reportMonth;
+  const MN=['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'];
+  const counts=[];for(let i=0;i<12;i++)counts.push(monthCount(i));
+  const maxM=Math.max(1,...counts);
+  const first=new Date(2026,m,1).getDay();
+  const dim=new Date(2026,m+1,0).getDate();
   const dows=['일','월','화','수','목','금','토'];
   let cells='';
   for(let i=0;i<first;i++)cells+=`<div class="cal-cell empty"></div>`;
-  for(let d=1;d<=30;d++){
-    const ids=VIEWLOG[d];
-    if(ids){const w=byId(ids[0]);cells+=`<div class="cal-cell has" style="background:${grad(w.genres[0])}"><span class="dn">${d}</span>${ids.length>1?`<span class="cnt">${ids.length}</span>`:''}</div>`}
-    else cells+=`<div class="cal-cell">${d}</div>`;
+  for(let d=1;d<=dim;d++){
+    const arr=STATE.viewLog[m+'-'+d];
+    if(arr&&arr.length){
+      const w=byId(arr[0].wid);
+      const click=arr.length>1?`openDayLog(${m},${d})`:`openDetail(${arr[0].wid})`;
+      cells+=`<div class="cal-cell has" style="background:${grad(w.genres[0])}" onclick="${click}" title="${w.t}${arr.length>1?` 외 ${arr.length-1}편`:''}"><span class="dn">${d}</span>${arr.length>1?`<span class="cnt">${arr.length}</span>`:''}</div>`;
+    } else cells+=`<div class="cal-cell">${d}</div>`;
   }
-  const pct=Math.min(100,Math.round(stats.total/200*100));
+  const pct=Math.min(100,Math.round(st.total/200*100));
   return `<div class="mr-wrap">
     <div class="mr-profile">
       <div class="av">${STATE.profile.name[0]}</div>
       <div class="nm">${STATE.profile.name}</div>
       <div class="id">@ollblue_user</div>
-      <div class="mr-ring" style="--p:${pct}"><div class="in"><div class="y">‹ 2026년 ›</div><div class="n">${stats.total}</div><div class="u">편</div></div></div>
+      <div class="mr-ring" style="--p:${pct}"><div class="in"><div class="y">2026년</div><div class="n">${st.total}</div><div class="u">편</div></div></div>
     </div>
     <div class="mr-main">
       <div class="mr-stats">
-        <div class="mr-stat"><div class="l">올해 본 작품</div><div class="v">${stats.total}편</div></div>
-        <div class="mr-stat"><div class="l">월평균</div><div class="v">${stats.monthAvg}편</div></div>
-        <div class="mr-stat"><div class="l">별점 평균</div><div class="v">${stats.avgRating}점</div></div>
-        <div class="mr-stat"><div class="l">본 화수</div><div class="v">${stats.episodes}화</div></div>
+        <div class="mr-stat"><div class="l">올해 본 작품</div><div class="v">${st.total}편</div></div>
+        <div class="mr-stat"><div class="l">월평균</div><div class="v">${st.monthAvg}편</div></div>
+        <div class="mr-stat"><div class="l">별점 평균</div><div class="v">${st.avg}점</div></div>
+        <div class="mr-stat"><div class="l">본 화수</div><div class="v">${st.eps.toLocaleString()}화</div></div>
       </div>
       <div class="mr-cal">
-        <div class="top">‹ 6월 ›</div>
+        <div class="top"><button class="mr-nav" onclick="reportNav(-1)">‹</button> ${MN[m]} <button class="mr-nav" onclick="reportNav(1)">›</button></div>
         <div class="cal-grid">${dows.map((d,i)=>`<div class="cal-h ${i===0?'sun':''}">${d}</div>`).join('')}${cells}</div>
+        <div style="text-align:center;font-size:11.5px;color:var(--ink-3);font-weight:600;margin-top:11px">📅 표지를 누르면 그 작품 상세로 이동 · 막대를 누르면 그 달로 이동</div>
       </div>
       <div class="mr-bars">
-        ${MONTHLY.map((v,i)=>`<div class="mr-bar ${i+1===6?'cur':''}"><div class="v">${v?v+'편':''}</div><div class="b" style="height:${v?Math.max(6,Math.round(v/maxM*100)):2}%"></div><div class="m">${i+1}월</div></div>`).join('')}
+        ${counts.map((v,i)=>`<div class="mr-bar ${i===m?'cur':''}" onclick="reportSetMonth(${i})"><div class="v">${v?v+'편':''}</div><div class="b" style="height:${v?Math.max(6,Math.round(v/maxM*100)):2}%"></div><div class="m">${i+1}월</div></div>`).join('')}
       </div>
     </div>
   </div>`;
+}
+function refreshReport(){const b=document.getElementById('mrBox');if(b)b.innerHTML=monthlyReportHTML()}
+function reportNav(d){let m=STATE.reportMonth+d;m=Math.max(0,Math.min(11,m));STATE.reportMonth=m;refreshReport()}
+function reportSetMonth(m){STATE.reportMonth=m;refreshReport()}
+function openDayLog(m,d){
+  const arr=STATE.viewLog[m+'-'+d]||[];
+  openModal(`<div class="modal-head"><h2>${m+1}월 ${d}일 감상 기록</h2><button class="x" onclick="closeModal()">✕</button></div>
+    <div class="modal-body">
+      <p style="font-size:13px;color:var(--ink-2);font-weight:600;margin-bottom:12px">이 날 ${arr.length}편을 감상했어요. 작품을 누르면 상세로 이동해요.</p>
+      ${arr.map(e=>{const w=byId(e.wid);return `<div class="reco-mini" onclick="closeModal();openDetail(${w.id})"><div class="pp" style="background:${grad(w.genres[0])}"></div><div><div class="t">${w.t}</div><div class="s">${w.type} · ${e.ep}화 감상 · ★${w.rating}</div></div></div>`}).join('')}
+    </div>`);
 }
 
 /* ===== 소장 작품(catalog 상태 + 직접 등록) ===== */
@@ -2357,12 +2393,28 @@ function tasteStart(id){
 ============================================================ */
 /* 데모 초기 활동(showcase) — 리포트/뱃지/소장관을 보여주기 위한 시드 */
 [1,3,5,10].forEach(id=>STATE.saved.add(id));
-[1,2,3,5,7,10,12].forEach(id=>STATE.ratings[id]=id===8?4:5);
+Object.entries({1:5,2:4,3:5,5:5,7:4,10:5,12:4}).forEach(([id,v])=>STATE.ratings[+id]=v);
 STATE.status[1]='done';STATE.status[3]='done';STATE.status[5]='done';STATE.status[10]='done';STATE.status[2]='watch';STATE.status[8]='hold';
 STATE.progress[1]=2;
 STATE.attendance.add(0);STATE.attendance.add(1);STATE.attendance.add(2);STATE.streak=3;
 STATE.myReviews=2;
 STATE.seriesProgress.add('0-0');STATE.seriesProgress.add('0-1');
+/* 실제 감상 로그 시드: 1~6월, 카탈로그 작품으로 채움(클릭 가능·통계 집계) */
+(function seedViewLog(){
+  const counts=[32,27,27,26,26,21]; // 1~6월 본 편수
+  const ids=WORKS.map(w=>w.id);
+  let s=20260601;const rnd=()=>{s=(s*1103515245+12345)&0x7fffffff;return s/0x7fffffff};
+  counts.forEach((cnt,mi)=>{
+    const dim=new Date(2026,mi+1,0).getDate();
+    for(let i=0;i<cnt;i++){
+      const day=1+Math.floor(rnd()*dim);
+      const wid=ids[Math.floor(rnd()*ids.length)];
+      const ep=3+Math.floor(rnd()*10);
+      const key=mi+'-'+day;
+      (STATE.viewLog[key]=STATE.viewLog[key]||[]).push({wid,ep});
+    }
+  });
+})();
 
 renderTabs();
 refreshAvatar();
